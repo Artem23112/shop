@@ -1,0 +1,140 @@
+// Product-Not-Found-Page Styles
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  min-height: 100vh;
+}
+
+.content {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2rem;
+  max-width: 42rem;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.icon {
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+}
+
+.title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  font-weight: 800;
+  font-size: 3rem;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.description {
+  margin-bottom: 2rem;
+  color: #666;
+  font-size: 1.25rem;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.info {
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  background: #f8f9fa;
+  padding: 1.5rem;
+}
+
+.infoTitle {
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.infoList {
+  color: #666;
+  list-style: none;
+  text-align: left;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.bullet {
+  margin-top: 0.25rem;
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btnPrimary {
+  transition: all 0.3s ease;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.75rem 2rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+}
+
+.btnSecondary {
+  transition: all 0.3s ease;
+  border: 2px solid #667eea;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(102, 126, 234, 0.1);
+  }
+}
+
+.btnTertiary {
+  transition: all 0.3s ease;
+  border: 2px solid #ccc;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  color: #555;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: #f8f9fa;
+  }
+}

@@ -1,0 +1,30 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 25px;
+  width: 100%;
+  max-width: var(--filter-panel-content-max-width);
+  color: white;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.arrow {
+  transform: rotate(-90deg);
+  transition: transform 0.5s;
+  &.active {
+    transform: rotate(0);
+  }
+}
+
+.wrapper {
+  transition: height 0.5s ease;
+  will-change: height;
+  overflow: hidden;
+}
+
+.childrenWrapper {
+  padding: 5px 0;
+}

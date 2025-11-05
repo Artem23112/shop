@@ -1,0 +1,13 @@
+.btn {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  color: #667eea;
+  font-weight: 600;
+  &:hover {
+    filter: brightness(1.2);
+  }
+}

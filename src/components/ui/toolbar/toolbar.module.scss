@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(20px);
+  border: var(--base-wrapper-border);
+  border-radius: 15px;
+  background: var(--base-wrapper-bg);
+  padding: 16px;
+  max-height: fit-content;
+}
+
+.found {
+  color: white;
+}
+
+.selectsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  & .select {
+    border: 1px solid rgba(white, 0.4);
+    border-radius: 6px;
+    background-color: var(--base-wrapper-bg);
+    padding: 6px 8px;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.btnsWrapper {
+  display: flex;
+  gap: 5px;
+  border-radius: 8px;
+  background-color: var(--base-wrapper-bg);
+
+  padding: 4px;
+  & .btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+  }
+
+  & .btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  & .btn + .btn {
+    margin-left: 6px;
+  }
+}

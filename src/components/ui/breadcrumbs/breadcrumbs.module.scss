@@ -1,0 +1,38 @@
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.item {
+  transition: color 0.2s ease;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  &:last-child {
+    pointer-events: none;
+    color: white;
+    font-weight: 500;
+  }
+}
+
+.item + .item {
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    content: '/';
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+  }
+}

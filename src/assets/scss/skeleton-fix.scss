@@ -1,0 +1,22 @@
+@keyframes react-loading-skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.react-loading-skeleton::after {
+  display: block;
+  position: absolute;
+  transform: translateX(-100%);
+  animation: react-loading-skeleton var(--animation-duration, 1.5s)
+    var(--animation-timing-function, ease-in-out)
+    var(--animation-iteration-count, infinite);
+  inset: 0;
+  background-image: linear-gradient(
+    90deg,
+    var(--base-color, #ebebeb),
+    var(--highlight-color, #f5f5f5),
+    var(--base-color, #ebebeb)
+  );
+  content: '';
+}

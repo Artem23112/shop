@@ -1,0 +1,57 @@
+.label {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.input {
+  position: relative;
+  flex-shrink: 0;
+  appearance: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+}
+
+.input[type='checkbox'] {
+  border-radius: 4px;
+}
+
+.input[type='radio'] {
+  border-radius: 50%;
+}
+
+.input:checked {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.input[type='checkbox']:checked::after {
+  position: absolute;
+  top: -2px;
+  left: 3px;
+  content: '✓';
+  color: white;
+  font-size: 13px;
+}
+
+/* Точка для радио */
+.input[type='radio']:checked::after {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 50%;
+  background: white;
+  width: 8px;
+  height: 8px;
+  content: '';
+}
+
+.categoryText {
+  color: white;
+}

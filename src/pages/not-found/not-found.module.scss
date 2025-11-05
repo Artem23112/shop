@@ -1,0 +1,90 @@
+@use '../../assets/scss/_variables.scss' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0 1rem;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 800;
+  font-size: 9rem;
+  line-height: 1;
+
+  @include respond(md) {
+    font-size: 6rem;
+  }
+}
+
+.subtitle {
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+  font-size: 2.5rem;
+
+  @include respond(md) {
+    font-size: 2rem;
+  }
+}
+
+.description {
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  max-width: 28rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.25rem;
+
+  @include respond(md) {
+    font-size: 1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btnPrimary {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: white;
+  }
+}
+
+.btnSecondary {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

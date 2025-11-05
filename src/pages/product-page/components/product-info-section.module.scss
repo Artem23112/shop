@@ -1,0 +1,80 @@
+@use '../../../assets/scss/_variables.scss' as *;
+
+.productSectionContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 32px;
+
+  @include respond(sm) {
+    gap: 20px;
+    padding: 14px;
+  }
+}
+
+.thumbnailImagesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(100px, 1fr));
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.active .thumbnailImg {
+  transform: scale(1.05);
+  border-color: #667eea;
+}
+
+.thumbnailImg {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  background: #f8f9fa;
+  padding: 10px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.productTitle {
+  color: #333;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+
+  @include respond(sm) {
+    font-size: 20px;
+  }
+}
+
+.productPrice {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  font-weight: 800;
+  font-size: 48px;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  background-clip: text;
+
+  @include respond(sm) {
+    font-size: 32px;
+  }
+}
+
+.productDescription {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.btnsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 45px;
+  gap: 10px;
+  padding-top: 20px;
+}

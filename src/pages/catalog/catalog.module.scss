@@ -1,0 +1,32 @@
+@use '@assets/scss/_variables' as *;
+
+.catalogWrapper {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas:
+    'filterPanel toolbar'
+    'filterPanel products'
+    'filterPanel pagination';
+
+  gap: 20px;
+}
+
+.toolbar {
+  grid-area: toolbar;
+}
+.filterPanel {
+  grid-area: filterPanel;
+}
+.products {
+  grid-area: products;
+}
+
+@include respond(md) {
+  .catalogWrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'toolbar'
+      'filterPanel'
+      'products';
+  }
+}

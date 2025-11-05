@@ -1,0 +1,57 @@
+@use './assets/scss/reset';
+@use './assets/scss/_variables' as *;
+@use '../node_modules/react-loading-skeleton/dist/skeleton';
+@use './assets/scss/skeleton-fix';
+
+:root {
+  /* FONTS */
+  --logo-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --arial-font: 'Arial', Helvetica, sans-serif;
+
+  /* COLORS */
+  --left-gradient-color: #667eea;
+  --right-gradient-color: #764ba2;
+
+  /* SIZES */
+  --header-height: 75px;
+
+  /*  */
+  --base-wrapper-bg: rgba(255, 255, 255, 0.1);
+  --base-wrapper-border: 1px solid rgba(255, 255, 255, 0.2);
+  --base-ui-item-border: 1px solid rgba(255, 255, 255, 0.4);
+}
+body {
+  background: linear-gradient(
+    135deg,
+    var(--left-gradient-color) 0%,
+    var(--right-gradient-color) 100%
+  );
+  min-height: 100vh;
+  font-family: var(--logo-font);
+}
+
+div#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  & main {
+    flex-grow: 1;
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 8px;
+  padding-left: 8px;
+  width: 100%;
+  max-width: calc($screen-xl - 16px);
+}
+
+@include respond(md) {
+  .container {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}

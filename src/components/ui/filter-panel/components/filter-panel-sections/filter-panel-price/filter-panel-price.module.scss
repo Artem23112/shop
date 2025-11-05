@@ -1,0 +1,17 @@
+.priceWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.rangeMin,
+.rangeMax {
+  border: var(--base-ui-item-border);
+  border-radius: 8px;
+  background-color: var(--base-wrapper-bg);
+  padding: 8px 12px;
+  max-width: var(--filter-panel-content-max-width);
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}

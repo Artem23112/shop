@@ -1,0 +1,16 @@
+@use '../../../assets/scss/_variables.scss' as *;
+
+.logo {
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    var(--left-gradient-color),
+    var(--right-gradient-color)
+  );
+  -webkit-background-clip: text;
+  font-weight: 800;
+  font-size: 32px;
+  font-family: var(--logo-font);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
