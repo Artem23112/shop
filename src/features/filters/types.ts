@@ -8,9 +8,9 @@ export interface FilterInitialState {
   searchValue: string;
 }
 
-export type SortBy = `${SORTBY}`;
+export type SortBy = (typeof SORTBY)[keyof typeof SORTBY];
 export function SortByGuard(val: string): val is SortBy {
-  return Object.values(SORTBY).includes(val as SORTBY);
+  return Object.values(SORTBY).includes(val as SortBy);
 }
 
 export type PriceRange = {
@@ -18,8 +18,8 @@ export type PriceRange = {
   max: number;
 };
 
-enum SORTBY {
-  All = 'all',
-  Ascending = 'asc',
-  Descending = 'desc',
-}
+export const SORTBY = {
+  All: 'all',
+  Ascending: 'asc',
+  Descending: 'desc',
+} as const;
