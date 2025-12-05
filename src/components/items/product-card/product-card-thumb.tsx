@@ -15,7 +15,7 @@ export const ProductCardThumb: FC<Props> = ({ productInfo }) => {
       to={ROUTES.CATALOG(productInfo.id.toString())}
     >
       <img className={s.thumbImg} src={productInfo.images[0]} alt="" />
-      <div>
+      <div className={s.thumbTextWrapper}>
         <h4 className={s.thumbTitle}>{productInfo.title}</h4>
         <span className={s.thumbPrice}>${productInfo.price}</span>
       </div>

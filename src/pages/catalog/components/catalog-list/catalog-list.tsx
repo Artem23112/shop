@@ -44,7 +44,7 @@ export const CatalogList: FC<Props> = ({ className = '' }) => {
   useEffect(() => {
     setAllProducts([]);
     setOffset(0);
-  }, [chosenCategoryId, priceRange.min, priceRange.max]);
+  }, [searchValue, chosenCategoryId, priceRange.min, priceRange.max]);
 
   // Добавление новых продуктов
   useEffect(() => {
