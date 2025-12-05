@@ -1,7 +1,7 @@
 import { useAppSelector } from '@app/rtk/hooks/hooks';
+import { SearchContainer } from '@components/search-container/search-container';
 import { NavButton } from '@components/ui/buttons/nav-button/nav-button';
 import { Logo } from '@components/ui/logo/logo';
-import { Search } from '@components/ui/search/search';
 import { cartItemsSelector } from '@features/cart/cartSlice';
 import { wishlistItemsSelector } from '@features/wishlist/selectors';
 import { ROUTES } from '@utils/constants/routes';
@@ -25,7 +25,7 @@ export const Header = () => {
         <div
           className={clsx(s.searchWrapper, { [s.searchOpen]: isSearchOpen })}
         >
-          <Search
+          <SearchContainer
             value={searchValue}
             setValue={setSearchValue}
             placeholder="Поиск товаров..."

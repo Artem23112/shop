@@ -1,8 +1,7 @@
-import { FilterPanelSectionWrapper } from '@components/ui/filter-panel/components/filter-panel-section-wrapper/filter-panel-section-wrapper';
-import { useState } from 'react';
-import s from './filter-panel-price.module.scss';
 import { useActions, useAppSelector } from '@app/rtk/hooks/hooks';
+import { FilterPanelSectionWrapper } from '@components/ui/filter-panel/components/filter-panel-section-wrapper/filter-panel-section-wrapper';
 import { filterStateSelector } from '@features/filters/selectors';
+import s from './filter-panel-price.module.scss';
 
 export const FilterPanelPrice = () => {
   const { priceRange } = useAppSelector(filterStateSelector);
