@@ -5,6 +5,7 @@ export interface FilterInitialState {
   priceRange: PriceRange;
   chosenCategoryId: number | null;
   view: CatalogView;
+  searchValue: string;
 }
 
 export type SortBy = `${SORTBY}`;
