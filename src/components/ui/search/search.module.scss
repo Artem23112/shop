@@ -1,4 +1,5 @@
 .search {
+  position: relative;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -12,5 +13,35 @@
 
   &::placeholder {
     font-family: var(--arial-font);
+  }
+}
+
+.searchResults {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  row-gap: 8px;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 15px 20px;
+  max-width: 100%;
+}
+
+.resultItem {
+  display: flex;
+  column-gap: 12px;
+
+  .thumbImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    color: #333;
+  }
+  .price {
+    color: #667eea;
+    font-weight: 500;
   }
 }

@@ -109,3 +109,23 @@
   padding: 10px;
   color: #667eea;
 }
+
+/* THUMB */
+
+.thumbCard {
+  display: flex;
+  column-gap: 12px;
+
+  .thumbImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .thumbTitle {
+    color: #333;
+  }
+  .thumbPrice {
+    color: #667eea;
+    font-weight: 500;
+  }
+}
