@@ -19,7 +19,7 @@ export const CatalogList: FC<Props> = ({ className = '' }) => {
   const [offset, setOffset] = useState(0);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
 
-  const { chosenCategoryId, priceRange, sortBy, view } =
+  const { chosenCategoryId, priceRange, sortBy, view, searchValue } =
     useAppSelector(filterStateSelector);
 
   const {
@@ -28,6 +28,7 @@ export const CatalogList: FC<Props> = ({ className = '' }) => {
     isFetching,
   } = useGetProductsByFilterQuery({
     limit: ITEMS_PER_PAGE,
+    title: searchValue,
     offset,
     priceMin: priceRange.min,
     priceMax: priceRange.max,

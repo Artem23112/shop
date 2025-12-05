@@ -14,6 +14,7 @@ const initialState: FilterInitialState = {
   },
   chosenCategoryId: null,
   view: 'grid',
+  searchValue: '',
 };
 
 export const filterSlice = createSlice({
@@ -35,6 +36,9 @@ export const filterSlice = createSlice({
     },
     setView: (state, action: PayloadAction<CatalogView>) => {
       state.view = action.payload;
+    },
+    changeSearchValue: (state, { payload }: PayloadAction<string>) => {
+      state.searchValue = payload;
     },
   },
 });
