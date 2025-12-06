@@ -51,6 +51,7 @@ export const ProductCard: FC<Props> = ({
         <div className={s.btnWrapper}>
           <AddToCart
             className={clsx(s.cartBtnActive, s.cartBtn)}
+            textWhenActive="Remove"
             isActive={isActiveBtns.cartBtn}
             onClick={(e) => safeOnClick(e, 'cart')}
           />
