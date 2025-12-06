@@ -45,23 +45,6 @@ export const SearchContainer: FC<Props> = ({ value, setValue, ...attr }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Переход в каталог по Enter
-  useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (
-        e.code === 'Enter' &&
-        searchValue &&
-        document.activeElement === searchInputRef.current
-      ) {
-        navigate(ROUTES.CATALOG());
-        setIsResultsOpen(false);
-      }
-    };
-
-    document.addEventListener('keypress', handleKeyPress);
-    return () => document.removeEventListener('keypress', handleKeyPress);
-  }, [searchValue, navigate]);
-
   // Debounce для обновления searchValue
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -76,6 +59,16 @@ export const SearchContainer: FC<Props> = ({ value, setValue, ...attr }) => {
       setIsResultsOpen(false);
     }
   }, [isOnCatalog]);
+
+  // Переход в каталог по Enter
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && searchValue) {
+      navigate(ROUTES.CATALOG());
+      setIsResultsOpen(false);
+      // Опционально: убрать фокус с input чтобы скрыть клавиатуру на мобильных
+      searchInputRef.current?.blur();
+    }
+  };
 
   // Открытие результатов при фокусе на input
   const handleFocus = () => {
@@ -95,6 +88,7 @@ export const SearchContainer: FC<Props> = ({ value, setValue, ...attr }) => {
       isLoading={isLoading || isFetching}
       isResultsOpen={isResultsOpen}
       onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
       {...attr}
     />
   );
