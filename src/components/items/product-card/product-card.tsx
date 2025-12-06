@@ -50,14 +50,13 @@ export const ProductCard: FC<Props> = ({
 
         <div className={s.btnWrapper}>
           <AddToCart
-            className={clsx(isActiveBtns.cartBtn && s.cartBtnActive, s.cartBtn)}
+            className={clsx(s.cartBtnActive, s.cartBtn)}
+            isActive={isActiveBtns.cartBtn}
             onClick={(e) => safeOnClick(e, 'cart')}
           />
           <AddToWishlist
-            className={clsx(
-              isActiveBtns.wishlistBtn && s.wishlistBtnActive,
-              s.wishlistBtn
-            )}
+            className={s.wishlistBtn}
+            isActive={isActiveBtns.wishlistBtn}
             onClick={(e) => safeOnClick(e, 'wishlist')}
           />
         </div>
