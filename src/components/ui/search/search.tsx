@@ -37,7 +37,7 @@ export const Search = forwardRef<HTMLDivElement, SearchFCProps>(
         {isResultsOpen && (
           <div className={s.resultsPopup}>
             <ul className={s.searchList}>
-              <li className={s.thumbNotFound}>
+              <li className={s.thumbNotFound} key={'no-results-key'}>
                 {searchResultItems.length === 0 &&
                   !isLoading &&
                   ' No results match your search.'}
@@ -46,7 +46,7 @@ export const Search = forwardRef<HTMLDivElement, SearchFCProps>(
                 searchResultItems
                   .slice(0, Math.min(searchResultItems.length, 5))
                   .map((productInfo) => (
-                    <li>
+                    <li key={productInfo.id}>
                       <ProductCardThumb productInfo={productInfo} />
                     </li>
                   ))
