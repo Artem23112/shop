@@ -26,7 +26,7 @@ export const ProductList: FC<Props> = ({ itemsView = 'grid', products }) => {
   };
 
   return (
-    <ul className={clsx(s.popularProducts, s[itemsView])}>
+    <ul className={clsx(s.productsList, s[itemsView])}>
       {!!products?.length &&
         products.map((product) => {
           return (
