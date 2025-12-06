@@ -9,4 +9,9 @@
   &:hover {
     filter: brightness(1.2);
   }
+  &.active {
+    border: 2px solid #764ba2;
+    background: white;
+    color: #764ba2;
+  }
 }
