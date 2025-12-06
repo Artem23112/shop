@@ -7,6 +7,7 @@ import { wishlistItemsSelector } from '@features/wishlist/selectors';
 import { ROUTES } from '@utils/constants/routes';
 import clsx from 'clsx';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import s from './header.module.scss';
 
 export const Header = () => {
@@ -18,9 +19,9 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <div className={clsx('container', s.contentWrapper)}>
-        <a href={ROUTES.HOME} className={s.logoLink}>
+        <Link to={ROUTES.HOME} className={s.logoLink}>
           <Logo className={s.logo} />
-        </a>
+        </Link>
 
         <div
           className={clsx(s.searchWrapper, { [s.searchOpen]: isSearchOpen })}
