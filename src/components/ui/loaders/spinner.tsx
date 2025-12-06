@@ -8,7 +8,6 @@ export const SpinnerLoader: FC<Props> = ({ className }) => {
   return (
     <div className={clsx(s.loaderContainer, className)}>
       <div className={s.spinner}></div>
-      <div className={s.loadingText}>LOADING</div>
     </div>
   );
 };
