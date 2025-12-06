@@ -7,10 +7,12 @@ import s from './search.module.scss';
 export type SearchFCProps = {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
+  closeResult?: () => void;
   searchResultItems: Product[];
   isLoading?: boolean;
   isError?: boolean;
   isResultsOpen?: boolean;
+  inputRef: React.Ref<HTMLInputElement>;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Search = forwardRef<HTMLDivElement, SearchFCProps>(
@@ -18,10 +20,12 @@ export const Search = forwardRef<HTMLDivElement, SearchFCProps>(
     {
       value,
       setValue,
+      closeResult,
       searchResultItems,
       isLoading = false,
       // isError = false,
       isResultsOpen = true,
+      inputRef,
       ...attr
     },
     ref
@@ -32,6 +36,7 @@ export const Search = forwardRef<HTMLDivElement, SearchFCProps>(
           className={s.search}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          ref={inputRef}
           {...attr}
         />
         {isResultsOpen && (
@@ -46,7 +51,7 @@ export const Search = forwardRef<HTMLDivElement, SearchFCProps>(
                 searchResultItems
                   .slice(0, Math.min(searchResultItems.length, 5))
                   .map((productInfo) => (
-                    <li key={productInfo.id}>
+                    <li key={productInfo.id} onClick={closeResult}>
                       <ProductCardThumb productInfo={productInfo} />
                     </li>
                   ))
