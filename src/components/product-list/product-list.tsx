@@ -28,21 +28,19 @@ export const ProductList: FC<Props> = ({ itemsView = 'grid', products }) => {
   return (
     <ul className={clsx(s.productsList, s[itemsView])}>
       {!!products?.length &&
-        products.map((product) => {
-          return (
-            <li key={product.id}>
-              <ProductCard
-                view={itemsView}
-                info={product}
-                isActiveBtns={{
-                  cartBtn: cartProductsIds.includes(product.id),
-                  wishlistBtn: wishlistProductsIds.includes(product.id),
-                }}
-                onActionBtnsClick={toggleIds}
-              />
-            </li>
-          );
-        })}
+        products.map((product) => (
+          <li key={product.id}>
+            <ProductCard
+              view={itemsView}
+              info={product}
+              isActiveBtns={{
+                cartBtn: cartProductsIds.includes(product.id),
+                wishlistBtn: wishlistProductsIds.includes(product.id),
+              }}
+              onActionBtnsClick={toggleIds}
+            />
+          </li>
+        ))}
     </ul>
   );
 };
