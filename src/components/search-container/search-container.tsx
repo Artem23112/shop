@@ -20,7 +20,7 @@ export const SearchContainer: FC<Props> = ({ value, setValue, ...attr }) => {
   const { changeSearchValue } = useActions();
   const { searchValue } = useAppSelector(filterStateSelector);
   const isOnCatalog = pathname === ROUTES.CATALOG();
-  const canOpenResults = !isOnCatalog && searchValue;
+
   const {
     data: productsBySearch = [],
     isLoading,
@@ -30,61 +30,59 @@ export const SearchContainer: FC<Props> = ({ value, setValue, ...attr }) => {
     { skip: searchValue === '' || isOnCatalog }
   );
 
+  // Закрытие при клике вне области
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (!searchWrapperRef.current) return;
-
-      if (!searchWrapperRef.current.contains(e.target as Node)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        searchWrapperRef.current &&
+        !searchWrapperRef.current.contains(e.target as Node)
+      ) {
         setIsResultsOpen(false);
       }
-    }
+    };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Переход в каталог по Enter
   useEffect(() => {
-    if (!searchValue) return;
-
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.code === 'Enter') {
+      if (
+        e.code === 'Enter' &&
+        searchValue &&
+        document.activeElement === searchInputRef.current
+      ) {
         navigate(ROUTES.CATALOG());
         setIsResultsOpen(false);
       }
     };
+
     document.addEventListener('keypress', handleKeyPress);
     return () => document.removeEventListener('keypress', handleKeyPress);
-  }, [searchValue]);
+  }, [searchValue, navigate]);
 
+  // Debounce для обновления searchValue
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       changeSearchValue(value);
     }, 400);
     return () => clearTimeout(timeoutId);
-  }, [value]);
+  }, [value, changeSearchValue]);
 
+  // Закрытие результатов при переходе на страницу каталога
   useEffect(() => {
-    if (canOpenResults) {
-      setIsResultsOpen(true);
-    } else {
+    if (isOnCatalog) {
       setIsResultsOpen(false);
     }
-  }, [canOpenResults]);
+  }, [isOnCatalog]);
 
-  useEffect(() => {
-    const inputElement = searchInputRef.current;
-    if (!inputElement) return;
-
-    const handleFocus = () => {
-      if (canOpenResults) setIsResultsOpen(true);
-    };
-
-    inputElement.addEventListener('focus', handleFocus);
-
-    return () => {
-      inputElement.removeEventListener('focus', handleFocus);
-    };
-  }, [searchInputRef, canOpenResults]);
+  // Открытие результатов при фокусе на input
+  const handleFocus = () => {
+    if (!isOnCatalog && searchValue) {
+      setIsResultsOpen(true);
+    }
+  };
 
   return (
     <Search
@@ -96,6 +94,7 @@ export const SearchContainer: FC<Props> = ({ value, setValue, ...attr }) => {
       searchResultItems={productsBySearch}
       isLoading={isLoading || isFetching}
       isResultsOpen={isResultsOpen}
+      onFocus={handleFocus}
       {...attr}
     />
   );
