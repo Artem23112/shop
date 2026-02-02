@@ -9,7 +9,7 @@ import {
   type ProductLoaderData,
 } from '@pages/product-page/product-loader';
 import { ProductPage } from '@pages/product-page/product-page';
-import { WishlistPage } from '@pages/wishlist-page';
+import { WishlistPage } from '@pages/wishlist-page/wishlist-page';
 import { ROUTES } from '@utils/constants/routes';
 import {
   createHashRouter,
