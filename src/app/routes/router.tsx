@@ -1,5 +1,5 @@
 import { RootRoute } from '@layout/root-route';
-import { CartPage } from '@pages/cart';
+import { CartPage } from '@pages/cart-page/cart-page';
 import { CatalogPage } from '@pages/catalog/catalog';
 import { Home } from '@pages/home/home';
 import { NotFound } from '@pages/not-found/not-found';
