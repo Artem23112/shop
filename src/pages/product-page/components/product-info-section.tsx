@@ -52,6 +52,7 @@ export const ProductInfoSection: FC<PropsT> = ({ productInfo }) => {
         <div className={s.btnsWrapper}>
           <AddToCart
             isActive={cartItems.includes(productInfo.id)}
+            textWhenActive="Remove from Cart"
             onClick={() => cartToggleItem(productInfo.id)}
           />
           <AddToWishlist
