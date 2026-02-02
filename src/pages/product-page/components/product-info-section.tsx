@@ -1,6 +1,7 @@
 import { useActions, useAppSelector } from '@app/rtk/hooks/hooks';
 import { AddToCart } from '@components/ui/buttons/add-to-cart/add-to-cart';
 import { AddToWishlist } from '@components/ui/buttons/add-to-wishlist/add-to-wishlist';
+import { cartItemsSelector } from '@features/cart/cartSlice';
 import type { Product } from '@features/products/types';
 import { wishlistItemsSelector } from '@features/wishlist/selectors';
 import { ChoseProductCount } from '@pages/product-page/components/chose-product-count/chose-product-count';
@@ -17,6 +18,7 @@ export const ProductInfoSection: FC<PropsT> = ({ productInfo }) => {
     productInfo.images[0]
   );
   const wishlistItems = useAppSelector(wishlistItemsSelector);
+  const cartItems = useAppSelector(cartItemsSelector);
   const { cartToggleItem, wishlistToggleItem } = useActions();
 
   return (
@@ -48,7 +50,10 @@ export const ProductInfoSection: FC<PropsT> = ({ productInfo }) => {
         <p className={s.productDescription}>{productInfo.description}</p>
         <ChoseProductCount />
         <div className={s.btnsWrapper}>
-          <AddToCart onClick={() => cartToggleItem(productInfo.id)} />
+          <AddToCart
+            isActive={cartItems.includes(productInfo.id)}
+            onClick={() => cartToggleItem(productInfo.id)}
+          />
           <AddToWishlist
             isActive={wishlistItems.includes(productInfo.id)}
             onClick={() => wishlistToggleItem(productInfo.id)}
