@@ -9,13 +9,12 @@ export const PopularProductsSection = () => {
     offset: 0,
   }); // по-хорошему с бека должен получать популярные
 
-  let isLoadingProducts = false;
   return (
     <SectionWithTitle
       title="Best-Selling Products"
       subtitle="This month’s most popular items"
     >
-      {!isLoadingProducts ? (
+      {!isLoading ? (
         <ProductList products={data || []} />
       ) : (
         <ProductListSkeleton countItems={6} />
