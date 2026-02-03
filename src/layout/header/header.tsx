@@ -2,7 +2,7 @@ import { useAppSelector } from '@app/rtk/hooks/hooks';
 import { SearchContainer } from '@components/search-container/search-container';
 import { NavButton } from '@components/ui/buttons/nav-button/nav-button';
 import { Logo } from '@components/ui/logo/logo';
-import { cartItemsSelector } from '@features/cart/cartSlice';
+import { cartItemsIdsSelector } from '@features/cart/cartSlice';
 import { wishlistItemsSelector } from '@features/wishlist/selectors';
 import { ROUTES } from '@utils/constants/routes';
 import clsx from 'clsx';
@@ -13,7 +13,7 @@ import s from './header.module.scss';
 export const Header = () => {
   const [searchValue, setSearchValue] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const cartProductIds = useAppSelector(cartItemsSelector);
+  const cartProductIds = useAppSelector(cartItemsIdsSelector);
   const wishlistProductIds = useAppSelector(wishlistItemsSelector);
 
   return (
