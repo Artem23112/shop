@@ -15,7 +15,7 @@ localStorageListener.startListening({
     const state = getState() as RootState;
     localStorage.setItem(
       UserListKeys.cart,
-      JSON.stringify(state.cartSliceReducer.items)
+      JSON.stringify(state.cartSliceReducer)
     );
     localStorage.setItem(
       UserListKeys.wishlist,
