@@ -1,8 +1,8 @@
 import { ProductCardSkeleton } from '@components/items/product-card/product-card-skeleton';
-import type { FC } from 'react';
-import s from './product-list.module.scss';
 import type { CatalogView } from '@components/ui/toolbar/toolbar';
 import clsx from 'clsx';
+import type { FC } from 'react';
+import s from './product-list.module.scss';
 
 type Props = {
   countItems: number;
@@ -14,7 +14,7 @@ export const ProductListSkeleton: FC<Props> = ({
   view = 'grid',
 }) => {
   return (
-    <ul className={clsx(s.popularProducts, s[view])}>
+    <ul className={clsx(s.productsList, s[view])}>
       {new Array(countItems).fill(0).map((_, index) => (
         <ProductCardSkeleton key={index} />
       ))}

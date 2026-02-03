@@ -1,7 +1,7 @@
 import { useActions, useAppSelector } from '@app/rtk/hooks/hooks';
 import { ProductCard } from '@components/items/product-card/product-card';
 import type { CatalogView } from '@components/ui/toolbar/toolbar';
-import { cartItemsSelector } from '@features/cart/cartSlice';
+import { cartItemsIdsSelector } from '@features/cart/cartSlice';
 import type { Product } from '@features/products/types';
 import { wishlistItemsSelector } from '@features/wishlist/selectors';
 import { UserListKeys } from '@utils/constants/LS-keys';
@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const ProductList: FC<Props> = ({ itemsView = 'grid', products }) => {
-  const cartProductsIds = useAppSelector(cartItemsSelector);
+  const cartProductsIds = useAppSelector(cartItemsIdsSelector);
   const wishlistProductsIds = useAppSelector(wishlistItemsSelector);
   const { cartToggleItem, wishlistToggleItem } = useActions();
 
