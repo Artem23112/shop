@@ -16,7 +16,6 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     cartToggleItem: (state, { payload }: CartTogglePayload) => {
-      debugger
       if (Object.keys(state).includes(payload.toString())) {
         delete state[payload];
       } else {
@@ -27,7 +26,6 @@ export const cartSlice = createSlice({
       state[payload.id] = payload.count;
     },
     clearCart: (state) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       state = {};
     },
   },
