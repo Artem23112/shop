@@ -25,8 +25,8 @@ export const cartSlice = createSlice({
     cartSetItemCount: (state, { payload }: CartSetCountPayload) => {
       state[payload.id] = payload.count;
     },
-    clearCart: (state) => {
-      state = {};
+    clearCart: (_state) => {
+      _state = {};
     },
   },
 });
