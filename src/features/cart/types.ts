@@ -7,5 +7,7 @@ export interface Cart {
   products: Product[];
 }
 
-export type CartState = { items: number[] };
-export type CartPayload = PayloadAction<number>;
+export type CartState = Record<number, number>;
+
+export type CartTogglePayload = PayloadAction<number>;
+export type CartSetCountPayload = PayloadAction<{ id: number; count: number }>;

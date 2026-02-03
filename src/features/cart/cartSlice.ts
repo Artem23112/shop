@@ -1,33 +1,44 @@
 import type { RootState } from '@app/rtk/store';
-import type { CartPayload, CartState } from '@features/cart/types';
+import type {
+  CartSetCountPayload,
+  CartState,
+  CartTogglePayload,
+} from '@features/cart/types';
 import { createSlice } from '@reduxjs/toolkit';
 import { UserListKeys } from '@utils/constants/LS-keys';
 
-const initialState: CartState = {
-  items: JSON.parse(localStorage.getItem(UserListKeys.cart) || '[]'),
-};
+const initialState: CartState = JSON.parse(
+  localStorage.getItem(UserListKeys.cart) || '{}'
+);
 
 export const cartSlice = createSlice({
   name: 'cartSlice',
   initialState,
   reducers: {
-    cartToggleItem: (state, { payload }: CartPayload) => {
-      if (state.items.includes(payload)) {
-        state.items = state.items.filter((id) => id !== payload);
+    cartToggleItem: (state, { payload }: CartTogglePayload) => {
+      debugger
+      if (Object.keys(state).includes(payload.toString())) {
+        delete state[payload];
       } else {
-        state.items.push(payload);
+        state[payload] = 1;
       }
     },
-
+    cartSetItemCount: (state, { payload }: CartSetCountPayload) => {
+      state[payload.id] = payload.count;
+    },
     clearCart: (state) => {
-      state.items = [];
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      state = {};
     },
   },
 });
 
-export const cartItemsSelector = (state: RootState) =>
-  state.cartSliceReducer.items;
+export const cartItemsIdsSelector = (state: RootState) =>
+  Object.keys(state.cartSliceReducer).map((id) => parseInt(id));
+export const cartItemsInfoSelector = (state: RootState) =>
+  state.cartSliceReducer;
 
-export const { cartToggleItem, clearCart } = cartSlice.actions;
+export const { cartToggleItem, cartSetItemCount, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
