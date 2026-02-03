@@ -16,7 +16,7 @@ export const ProductListSkeleton: FC<Props> = ({
   return (
     <ul className={clsx(s.productsList, s[view])}>
       {new Array(countItems).fill(0).map((_, index) => (
-        <ProductCardSkeleton key={index} />
+        <ProductCardSkeleton view={view} key={index} />
       ))}
     </ul>
   );
